@@ -12,14 +12,12 @@
 @font-face { font-family:'Orbitron'; src:url('fonts/Orbitron-Bold.woff2') format('woff2'); font-weight:700; font-display:block; }
 @font-face { font-family:'Orbitron'; src:url('fonts/Orbitron-ExtraBold.woff2') format('woff2'); font-weight:800; font-display:block; }
 @font-face { font-family:'Orbitron'; src:url('fonts/Orbitron-Black.woff2') format('woff2'); font-weight:900; font-display:block; }
-
 /* ── SPACE GROTESK ── */
 @font-face { font-family:'Space Grotesk'; src:url('fonts/SpaceGrotesk-Light.woff2') format('woff2'); font-weight:300; font-display:block; }
 @font-face { font-family:'Space Grotesk'; src:url('fonts/SpaceGrotesk-Regular.woff2') format('woff2'); font-weight:400; font-display:block; }
 @font-face { font-family:'Space Grotesk'; src:url('fonts/SpaceGrotesk-Medium.woff2') format('woff2'); font-weight:500; font-display:block; }
 @font-face { font-family:'Space Grotesk'; src:url('fonts/SpaceGrotesk-SemiBold.woff2') format('woff2'); font-weight:600; font-display:block; }
 @font-face { font-family:'Space Grotesk'; src:url('fonts/SpaceGrotesk-Bold.woff2') format('woff2'); font-weight:700; font-display:block; }
-
 /* ── SYNE ── */
 @font-face { font-family:'Syne'; src:url('fonts/Syne-Regular.woff2') format('woff2'); font-weight:400; font-display:block; }
 @font-face { font-family:'Syne'; src:url('fonts/Syne-Medium.woff2') format('woff2'); font-weight:500; font-display:block; }
@@ -39,7 +37,6 @@
 }
 body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 #bg-canvas{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:0;pointer-events:none}
-
 /* ── NAV ── */
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(8,12,20,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);width:100%;gap:1rem}
 nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
@@ -60,7 +57,6 @@ nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
 .logo-role{display:flex;flex-direction:column;gap:3px;animation:fadeInLogo .8s ease .5s both}
 .logo-role span{font-size:11px;font-weight:500;color:rgba(147,197,253,.6);letter-spacing:2.5px;text-transform:uppercase;white-space:nowrap}
 .logo-role span:last-child{color:rgba(96,165,250,.38);font-weight:300}
-
 /* ── GRADIENT BUTTON ── */
 .gradient-button{position:relative;padding:13px 26px;font-size:14px;font-weight:600;color:white;background:transparent;border:none;cursor:pointer;border-radius:50px;overflow:hidden;transition:transform .2s ease;text-decoration:none;display:inline-block;letter-spacing:.06em;font-family:'Space Grotesk',sans-serif;white-space:nowrap}
 .gradient-button:hover{transform:scale(1.03)}
@@ -72,7 +68,6 @@ nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
 .gradient-button:active{transform:scale(.99)}
 .gradient-button.hero-btn{padding:12px 28px;font-size:13px}
 @keyframes hue-rotating{to{filter:hue-rotate(360deg)}}
-
 /* ── HERO ── */
 .hero{position:relative;z-index:1;padding:2rem 2.5rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center}
 .hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid var(--green-border);padding:.35rem .9rem;border-radius:100px;margin-bottom:1.75rem}
@@ -81,7 +76,6 @@ nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
 .hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;line-height:1.05;color:#f0f6ff;margin-bottom:1rem}
 .hero h1 .accent{color:var(--accent2)}
 .hero-sub{font-size:1.05rem;color:var(--muted);max-width:520px;line-height:1.75;margin-bottom:1.5rem}
-
 /* ── SECTIONS ── */
 section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem 2.5rem}
 .section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
@@ -89,7 +83,6 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .section-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent)}
 .section-title{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;background:linear-gradient(135deg,#93c5fd 0%,#2563eb 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem;text-align:center}
 .section-desc{color:var(--muted);font-size:.95rem;margin-bottom:2rem;text-align:center}
-
 /* ── PORTFOLIO ── */
 .filter-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.75rem;justify-content:center}
 .filter-tab{font-size:.78rem;padding:.4rem 1rem;border-radius:100px;border:1px solid var(--border);color:var(--muted);background:transparent;cursor:pointer;transition:all .2s;font-family:'Space Grotesk',sans-serif;letter-spacing:.05em}
@@ -109,7 +102,6 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .card-tools{display:flex;gap:.4rem;flex-wrap:wrap}
 .tool-badge{font-size:.65rem;padding:.2rem .55rem;border-radius:100px;background:rgba(59,130,246,.1);color:var(--accent3);border:1px solid rgba(59,130,246,.2)}
 .card-arrow{color:var(--accent);font-size:1rem}
-
 /* ── MODAL ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
 .modal-overlay.open{display:flex}
@@ -122,7 +114,6 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .modal-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#f0f6ff;margin-bottom:.75rem;text-align:center}
 .modal-desc{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:1.25rem;text-align:center}
 .modal-tags{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
-
 /* ── SOBRE MÍ ── */
 .about-wrapper{display:flex;justify-content:center}
 .about-card{position:relative;width:100%;max-width:580px;border-radius:50px;overflow:hidden;padding:3px}
@@ -131,7 +122,7 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .about-inner{position:relative;z-index:1;background:#0d1220;border-radius:48px;padding:2.5rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.2rem}
 .about-avatar-wrap{position:relative;width:72px;height:72px;border-radius:50%;padding:2.5px;overflow:hidden}
 .about-avatar-wrap::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,#1a6fff,#00d4ff,#38bdf8,#818cf8,#1d4ed8,#1a6fff);animation:rotateBorder 4s linear infinite;filter:blur(3px)}
-.about-avatar{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#1d4ed8,#0f2a6e);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-weight:900;font-size:.95rem;letter-spacing:.08em;color:#c8d8f0}
+.about-avatar{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
 .about-name{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#f0f6ff;line-height:1.1}
 .about-role{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:transparent;background:conic-gradient(from 0deg,#60a5fa,#38bdf8,#93c5fd,#60a5fa);background-clip:text;-webkit-background-clip:text}
 .about-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(96,165,250,.5),transparent)}
@@ -144,7 +135,6 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .about-interests{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
 .interest-tag{font-size:.7rem;padding:.3rem .8rem;border-radius:100px;background:rgba(59,130,246,.08);color:var(--accent3);border:1px solid rgba(59,130,246,.25);letter-spacing:.04em;transition:all .2s;cursor:default}
 .interest-tag:hover{background:rgba(59,130,246,.15);border-color:rgba(96,165,250,.5);color:#e2e8f0}
-
 /* ── CONTACT ── */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;margin-top:1.5rem}
 .contact-card{position:relative;border-radius:18px;overflow:hidden;padding:3px;text-decoration:none;display:block;transition:transform .2s}
@@ -155,13 +145,11 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .contact-icon-wrap{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(59,130,246,.1);line-height:1}
 .contact-label{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.25rem;text-align:center}
 .contact-val{font-size:.82rem;font-weight:500;color:transparent;background:conic-gradient(from 0deg,#c8d8f0,#7eb8e8,#c8d8f0);background-clip:text;-webkit-background-clip:text;word-break:break-all;text-align:center}
-
 footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;letter-spacing:.06em}
 footer span{color:var(--accent)}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
-
 /* ══════════════════════════════
    MOBILE — max 768px
 ══════════════════════════════ */
@@ -205,7 +193,6 @@ footer span{color:var(--accent)}
 </head>
 <body>
 <canvas id="bg-canvas"></canvas>
-
 <!-- NAV -->
 <nav>
   <div class="logo-block">
@@ -226,16 +213,14 @@ footer span{color:var(--accent)}
     <li><a href="#contacto" class="gradient-button" onclick="navScroll('contacto',event)"><span class="gradient-text">Contacto</span></a></li>
   </ul>
 </nav>
-
 <!-- HERO -->
 <div class="hero">
   <div class="hero-tag">Disponible para proyectos</div>
   <h1>Gary <span class="accent">Soto.</span></h1>
   <p class="hero-sub">Estratega de contenido y editor audiovisual enfocado en la retención y el crecimiento. Analizo métricas de audiencia y transformo ideas en piezas visuales diseñadas para captar atención, aumentar engagement y escalar canales digitales. También desarrollo contenido, webs, automatizaciones y workflows utilizando herramientas de AI.</p>
 </div>
-
-<!-- PORTAFOLIO -->
-<section id="portafolio">
+<!-- PORTAFOLIO — padding-top reducido para acercarlo al hero -->
+<section id="portafolio" style="padding-top:0.5rem">
   <div class="section-header">
     <span class="section-tag">Portafolio</span>
     <div class="section-line"></div>
@@ -251,7 +236,6 @@ footer span{color:var(--accent)}
   </div>
   <div class="portfolio-grid" id="portfolio-grid"></div>
 </section>
-
 <!-- SOBRE MÍ -->
 <section id="sobre-mi">
   <div class="section-header">
@@ -262,7 +246,7 @@ footer span{color:var(--accent)}
     <div class="about-card">
       <div class="about-inner">
         <div class="about-avatar-wrap">
-          <div class="about-avatar">GS</div>
+          <img src="img/PRUEBITA.jpg" alt="Gary Soto" class="about-avatar" style="object-fit:cover;width:100%;height:100%;border-radius:50%;">
         </div>
         <div class="about-name">Gary Soto Saldaña</div>
         <div class="about-role">Estratega de Contenido · Editor Audiovisual</div>
@@ -292,7 +276,6 @@ footer span{color:var(--accent)}
     </div>
   </div>
 </section>
-
 <!-- CONTACTO -->
 <section id="contacto">
   <div class="section-header">
@@ -302,7 +285,6 @@ footer span{color:var(--accent)}
   <h2 class="section-title">¿Trabajamos juntos?</h2>
   <p class="section-desc">Estoy disponible para proyectos freelance, colaboraciones y consultoría de contenido.</p>
   <div class="contact-grid">
-
     <a class="contact-card" href="mailto:garysoto19@gmail.com">
       <div class="contact-card-inner">
         <div class="contact-icon-wrap">
@@ -318,7 +300,6 @@ footer span{color:var(--accent)}
         </div>
       </div>
     </a>
-
     <a class="contact-card" href="https://wa.me/51982799749" target="_blank" rel="noopener">
       <div class="contact-card-inner">
         <div class="contact-icon-wrap">
@@ -333,7 +314,6 @@ footer span{color:var(--accent)}
         </div>
       </div>
     </a>
-
     <a class="contact-card" href="https://instagram.com/heretic_______" target="_blank" rel="noopener">
       <div class="contact-card-inner">
         <div class="contact-icon-wrap">
@@ -358,7 +338,6 @@ footer span{color:var(--accent)}
         </div>
       </div>
     </a>
-
     <a class="contact-card" href="https://linkedin.com/in/gary-soto-salda%C3%B1a" target="_blank" rel="noopener">
       <div class="contact-card-inner">
         <div class="contact-icon-wrap">
@@ -373,12 +352,9 @@ footer span{color:var(--accent)}
         </div>
       </div>
     </a>
-
   </div>
 </section>
-
 <footer>Diseñado y construido por <span>Gary Soto</span> · Lima, Perú · 2025</footer>
-
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal">
@@ -393,10 +369,8 @@ footer span{color:var(--accent)}
     <div class="modal-tags" id="modal-tools"></div>
   </div>
 </div>
-
 <script>
 function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementById(id);if(el){const navH=document.querySelector('nav').offsetHeight;const top=el.getBoundingClientRect().top+window.scrollY-navH-16;window.scrollTo({top,behavior:'smooth'})}}
-
 /* ── 3D ANIMATED BG ── */
 (function(){
   const canvas=document.getElementById('bg-canvas');
@@ -495,7 +469,6 @@ function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementByI
   resize();animate();
   window.addEventListener('resize',resize);
 })();
-
 /* ── PORTFOLIO ── */
 const projects=[
   {id:1,cat:'spot',color:'#1e3a5f',tag:'Spot Publicitario',title:'Campaña de lanzamiento – Marca X',desc:'Spot de 30 segundos para el lanzamiento de un producto tech. Edición rítmica con motion graphics y corrección de color cinematográfica. Resultado: +200K views en la primera semana.',tools:['Premiere Pro','After Effects','DaVinci'],videoUrl:''},
@@ -505,7 +478,6 @@ const projects=[
   {id:5,cat:'spot',color:'#1a3030',tag:'Spot Publicitario',title:'Anuncio de temporada – Retail',desc:'Spot de 45 segundos con storytelling emocional y grade cinematográfico. Distribución en YouTube Ads y TV regional. 500K impresiones.',tools:['DaVinci Resolve','Premiere','Audition'],videoUrl:''},
   {id:6,cat:'web',color:'#1e2d3e',tag:'Web & Marketing',title:'Caso de estudio animado – Agencia',desc:'Video de caso de estudio de 2 minutos con motion graphics e infografías animadas. Pieza central de la estrategia B2B.',tools:['After Effects','Illustrator','Premiere'],videoUrl:''}
 ];
-
 function renderCards(filter='all'){
   const grid=document.getElementById('portfolio-grid');
   const f=filter==='all'?projects:projects.filter(p=>p.cat===filter);
