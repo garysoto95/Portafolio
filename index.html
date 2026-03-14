@@ -38,7 +38,7 @@
   --card:rgba(13,18,32,0.85);
 }
 body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
-#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+#bg-canvas{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:0;pointer-events:none}
 
 /* ── NAV ── */
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(8,12,20,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);width:100%;gap:1rem}
@@ -411,11 +411,16 @@ function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementByI
     r:Math.random()*1.5+.5,pulse:Math.random()*Math.PI*2,
     type:Math.random()>.65?'node':'dot'
   }));
-  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+  function resize(){
+    const vw=window.innerWidth;
+    const vh=window.innerHeight;
+    W=canvas.width=Math.max(vw,1200);
+    H=canvas.height=vh;
+    canvas.style.width=Math.max(vw,1200)+'px';
+    canvas.style.height=vh+'px';
+  }
   function project(x,y,z){
-    const isMobile=W<768;
-    const minD=isMobile?Math.max(W,H)*0.85:Math.min(W,H);
-    const fov=600,px=(x-.5)*minD,py=(y-.5)*minD,pz=z*400-200;
+    const fov=600,px=(x-.5)*W,py=(y-.5)*H,pz=z*400-200;
     const cosY=Math.cos(rotY),sinY=Math.sin(rotY);
     const rx=px*cosY-pz*sinY,rz=px*sinY+pz*cosY;
     const cosX=Math.cos(rotX),sinX=Math.sin(rotX);
