@@ -37,6 +37,7 @@
 }
 body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 #bg-canvas{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:0;pointer-events:none}
+
 /* ── NAV ── */
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(8,12,20,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);width:100%;gap:1rem}
 nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
@@ -57,6 +58,7 @@ nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
 .logo-role{display:flex;flex-direction:column;gap:3px;animation:fadeInLogo .8s ease .5s both}
 .logo-role span{font-size:11px;font-weight:500;color:rgba(147,197,253,.6);letter-spacing:2.5px;text-transform:uppercase;white-space:nowrap}
 .logo-role span:last-child{color:rgba(96,165,250,.38);font-weight:300}
+
 /* ── GRADIENT BUTTON ── */
 .gradient-button{position:relative;padding:13px 26px;font-size:14px;font-weight:600;color:white;background:transparent;border:none;cursor:pointer;border-radius:50px;overflow:hidden;transition:transform .2s ease;text-decoration:none;display:inline-block;letter-spacing:.06em;font-family:'Space Grotesk',sans-serif;white-space:nowrap}
 .gradient-button:hover{transform:scale(1.03)}
@@ -68,6 +70,7 @@ nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
 .gradient-button:active{transform:scale(.99)}
 .gradient-button.hero-btn{padding:12px 28px;font-size:13px}
 @keyframes hue-rotating{to{filter:hue-rotate(360deg)}}
+
 /* ── HERO ── */
 .hero{position:relative;z-index:1;padding:2rem 2.5rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center}
 .hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid var(--green-border);padding:.35rem .9rem;border-radius:100px;margin-bottom:1.75rem}
@@ -76,32 +79,94 @@ nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
 .hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;line-height:1.05;color:#f0f6ff;margin-bottom:1rem}
 .hero h1 .accent{color:var(--accent2)}
 .hero-sub{font-size:1.05rem;color:var(--muted);max-width:520px;line-height:1.75;margin-bottom:1.5rem}
-/* ── SECTIONS ── */
+
+/* ── SECTIONS (todas menos portafolio) ── */
 section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem 2.5rem}
 .section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
 .section-tag{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);background:rgba(59,130,246,.08);border:1px solid var(--border);padding:.25rem .8rem;border-radius:100px}
 .section-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent)}
 .section-title{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;background:linear-gradient(135deg,#93c5fd 0%,#2563eb 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem;text-align:center}
 .section-desc{color:var(--muted);font-size:.95rem;margin-bottom:2rem;text-align:center}
-/* ── PORTFOLIO ── */
+
+/* ── PORTAFOLIO — ancho ampliado ── */
+#portafolio{max-width:1360px;padding-left:2rem;padding-right:2rem}
+
+/* ── FILTER TABS ── */
 .filter-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.75rem;justify-content:center}
 .filter-tab{font-size:.78rem;padding:.4rem 1rem;border-radius:100px;border:1px solid var(--border);color:var(--muted);background:transparent;cursor:pointer;transition:all .2s;font-family:'Space Grotesk',sans-serif;letter-spacing:.05em}
 .filter-tab:hover,.filter-tab.active{background:rgba(59,130,246,.12);color:var(--accent2);border-color:var(--border2)}
-.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem}
-.portfolio-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .25s}
-.portfolio-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 0 24px rgba(59,130,246,.12)}
-.card-thumb{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.card-thumb .play-btn{width:48px;height:48px;border-radius:50%;background:rgba(59,130,246,.9);display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:transform .2s;z-index:2}
-.portfolio-card:hover .play-btn{transform:scale(1.1)}
-.card-thumb-bg{position:absolute;inset:0;opacity:.25}
-.card-body{padding:1rem;text-align:center}
-.card-tag{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
-.card-title{font-weight:600;font-size:.95rem;color:var(--text);margin-bottom:.35rem}
-.card-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
-.card-footer{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;border-top:1px solid var(--border)}
+
+/* ── MASONRY GRID ── */
+.portfolio-grid{
+  columns:3;
+  column-gap:1.25rem;
+}
+.portfolio-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+  break-inside:avoid;
+  margin-bottom:1.25rem;
+  display:inline-block;
+  width:100%;
+}
+.portfolio-card:hover{
+  border-color:var(--border2);
+  transform:translateY(-4px);
+  box-shadow:0 0 28px rgba(59,130,246,.14);
+}
+
+/* thumb con aspect-ratio variable */
+.card-thumb{
+  width:100%;
+  position:relative;
+  overflow:hidden;
+}
+.card-thumb.r169 { aspect-ratio:16/9; }
+.card-thumb.r11  { aspect-ratio:1/1;  }
+.card-thumb.r45  { aspect-ratio:4/5;  }
+
+.card-thumb-bg{
+  position:absolute;inset:0;
+  opacity:.28;
+  transition:opacity .3s,transform .35s;
+}
+.portfolio-card:hover .card-thumb-bg{opacity:.45;transform:scale(1.04)}
+
+.play-btn{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:50px;height:50px;
+  border-radius:50%;
+  background:rgba(59,130,246,.88);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;
+  transition:transform .22s,background .2s;
+  z-index:2;
+}
+.portfolio-card:hover .play-btn{
+  transform:translate(-50%,-50%) scale(1.1);
+  background:rgba(59,130,246,1);
+}
+
+.card-body{padding:1rem 1.1rem .65rem}
+.card-tag{font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.45rem}
+.card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#f0f6ff;margin-bottom:.45rem;line-height:1.25}
+.card-desc{font-size:.8rem;color:var(--muted);line-height:1.6}
+
+.card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.7rem 1.1rem;
+  border-top:1px solid var(--border);
+}
 .card-tools{display:flex;gap:.4rem;flex-wrap:wrap}
 .tool-badge{font-size:.65rem;padding:.2rem .55rem;border-radius:100px;background:rgba(59,130,246,.1);color:var(--accent3);border:1px solid rgba(59,130,246,.2)}
-.card-arrow{color:var(--accent);font-size:1rem}
+.card-arrow{color:var(--accent2);font-size:1rem;transition:transform .2s}
+.portfolio-card:hover .card-arrow{transform:translateX(3px)}
+
 /* ── MODAL ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
 .modal-overlay.open{display:flex}
@@ -114,6 +179,7 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .modal-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#f0f6ff;margin-bottom:.75rem;text-align:center}
 .modal-desc{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:1.25rem;text-align:center}
 .modal-tags{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+
 /* ── SOBRE MÍ ── */
 .about-wrapper{display:flex;justify-content:center}
 .about-card{position:relative;width:100%;max-width:580px;border-radius:50px;overflow:hidden;padding:3px}
@@ -135,6 +201,7 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .about-interests{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
 .interest-tag{font-size:.7rem;padding:.3rem .8rem;border-radius:100px;background:rgba(59,130,246,.08);color:var(--accent3);border:1px solid rgba(59,130,246,.25);letter-spacing:.04em;transition:all .2s;cursor:default}
 .interest-tag:hover{background:rgba(59,130,246,.15);border-color:rgba(96,165,250,.5);color:#e2e8f0}
+
 /* ── CONTACT ── */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;margin-top:1.5rem}
 .contact-card{position:relative;border-radius:18px;overflow:hidden;padding:3px;text-decoration:none;display:block;transition:transform .2s}
@@ -145,14 +212,19 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .contact-icon-wrap{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(59,130,246,.1);line-height:1}
 .contact-label{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.25rem;text-align:center}
 .contact-val{font-size:.82rem;font-weight:500;color:transparent;background:conic-gradient(from 0deg,#c8d8f0,#7eb8e8,#c8d8f0);background-clip:text;-webkit-background-clip:text;word-break:break-all;text-align:center}
+
 footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;letter-spacing:.06em}
 footer span{color:var(--accent)}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+
 /* ══════════════════════════════
    MOBILE — max 768px
 ══════════════════════════════ */
+@media (max-width:1024px){
+  .portfolio-grid{columns:2}
+}
 @media (max-width:768px){
   nav{flex-direction:column;align-items:center;padding:.85rem 1.25rem;gap:.75rem}
   .logo-block{width:100%;justify-content:center}
@@ -167,8 +239,9 @@ footer span{color:var(--accent)}
   .hero h1{font-size:clamp(2rem,11vw,3.5rem)}
   .hero-sub{font-size:.95rem}
   section{padding:1.5rem 1.25rem}
+  #portafolio{padding-left:1rem;padding-right:1rem}
   .section-title{font-size:1.5rem}
-  .portfolio-grid{grid-template-columns:1fr}
+  .portfolio-grid{columns:1}
   .filter-tabs{gap:.4rem}
   .filter-tab{font-size:.72rem;padding:.35rem .85rem}
   .about-card{border-radius:32px}
@@ -193,6 +266,7 @@ footer span{color:var(--accent)}
 </head>
 <body>
 <canvas id="bg-canvas"></canvas>
+
 <!-- NAV -->
 <nav>
   <div class="logo-block">
@@ -213,13 +287,15 @@ footer span{color:var(--accent)}
     <li><a href="#contacto" class="gradient-button" onclick="navScroll('contacto',event)"><span class="gradient-text">Contacto</span></a></li>
   </ul>
 </nav>
+
 <!-- HERO -->
 <div class="hero">
   <div class="hero-tag">Disponible para proyectos</div>
   <h1>Gary <span class="accent">Soto.</span></h1>
   <p class="hero-sub">Estratega de contenido y editor audiovisual enfocado en la retención y el crecimiento. Analizo métricas de audiencia y transformo ideas en piezas visuales diseñadas para captar atención, aumentar engagement y escalar canales digitales. También desarrollo contenido, webs, automatizaciones y workflows utilizando herramientas de AI.</p>
 </div>
-<!-- PORTAFOLIO — padding-top reducido para acercarlo al hero -->
+
+<!-- PORTAFOLIO -->
 <section id="portafolio" style="padding-top:0.5rem">
   <div class="section-header">
     <span class="section-tag">Portafolio</span>
@@ -236,6 +312,7 @@ footer span{color:var(--accent)}
   </div>
   <div class="portfolio-grid" id="portfolio-grid"></div>
 </section>
+
 <!-- SOBRE MÍ -->
 <section id="sobre-mi">
   <div class="section-header">
@@ -276,6 +353,7 @@ footer span{color:var(--accent)}
     </div>
   </div>
 </section>
+
 <!-- CONTACTO -->
 <section id="contacto">
   <div class="section-header">
@@ -354,7 +432,9 @@ footer span{color:var(--accent)}
     </a>
   </div>
 </section>
+
 <footer>Diseñado y construido por <span>Gary Soto</span> · Lima, Perú · 2025</footer>
+
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal">
@@ -369,8 +449,10 @@ footer span{color:var(--accent)}
     <div class="modal-tags" id="modal-tools"></div>
   </div>
 </div>
+
 <script>
 function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementById(id);if(el){const navH=document.querySelector('nav').offsetHeight;const top=el.getBoundingClientRect().top+window.scrollY-navH-16;window.scrollTo({top,behavior:'smooth'})}}
+
 /* ── 3D ANIMATED BG ── */
 (function(){
   const canvas=document.getElementById('bg-canvas');
@@ -469,7 +551,9 @@ function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementByI
   resize();animate();
   window.addEventListener('resize',resize);
 })();
+
 /* ── PORTFOLIO ── */
+const ratios=['r169','r11','r45','r169','r45','r11'];
 const projects=[
   {id:1,cat:'spot',color:'#1e3a5f',tag:'Spot Publicitario',title:'Campaña de lanzamiento – Marca X',desc:'Spot de 30 segundos para el lanzamiento de un producto tech. Edición rítmica con motion graphics y corrección de color cinematográfica. Resultado: +200K views en la primera semana.',tools:['Premiere Pro','After Effects','DaVinci'],videoUrl:''},
   {id:2,cat:'reel',color:'#1a3a2a',tag:'Reel / Short',title:'Serie de Reels – Marca de fitness',desc:'Pack de 10 reels mensuales con edición de alta retención. Hooks en los primeros 3 segundos y subtítulos animados. +400% crecimiento en 60 días.',tools:['CapCut Pro','Premiere','Canva'],videoUrl:''},
@@ -478,17 +562,34 @@ const projects=[
   {id:5,cat:'spot',color:'#1a3030',tag:'Spot Publicitario',title:'Anuncio de temporada – Retail',desc:'Spot de 45 segundos con storytelling emocional y grade cinematográfico. Distribución en YouTube Ads y TV regional. 500K impresiones.',tools:['DaVinci Resolve','Premiere','Audition'],videoUrl:''},
   {id:6,cat:'web',color:'#1e2d3e',tag:'Web & Marketing',title:'Caso de estudio animado – Agencia',desc:'Video de caso de estudio de 2 minutos con motion graphics e infografías animadas. Pieza central de la estrategia B2B.',tools:['After Effects','Illustrator','Premiere'],videoUrl:''}
 ];
+
 function renderCards(filter='all'){
   const grid=document.getElementById('portfolio-grid');
   const f=filter==='all'?projects:projects.filter(p=>p.cat===filter);
-  grid.innerHTML=f.map(p=>`
+  grid.innerHTML=f.map((p,i)=>`
     <div class="portfolio-card" onclick="openModal(${p.id})">
-      <div class="card-thumb" style="background:${p.color}22;"><div class="card-thumb-bg" style="background:${p.color};"></div><div class="play-btn">▶</div></div>
-      <div class="card-body"><div class="card-tag">${p.tag}</div><div class="card-title">${p.title}</div><div class="card-desc">${p.desc.substring(0,72)}...</div></div>
-      <div class="card-footer"><div class="card-tools">${p.tools.slice(0,2).map(t=>`<span class="tool-badge">${t}</span>`).join('')}</div><span class="card-arrow">→</span></div>
+      <div class="card-thumb ${ratios[i%ratios.length]}" style="background:${p.color}22;">
+        <div class="card-thumb-bg" style="background:${p.color};"></div>
+        <div class="play-btn">▶</div>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">${p.tag}</div>
+        <div class="card-title">${p.title}</div>
+        <div class="card-desc">${p.desc.substring(0,100)}...</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-tools">${p.tools.map(t=>`<span class="tool-badge">${t}</span>`).join('')}</div>
+        <span class="card-arrow">→</span>
+      </div>
     </div>`).join('');
 }
-function filterCards(cat,btn){document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderCards(cat)}
+
+function filterCards(cat,btn){
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards(cat);
+}
+
 function openModal(id){
   const p=projects.find(x=>x.id===id);
   document.getElementById('modal-tag').textContent=p.tag;
@@ -504,6 +605,7 @@ function openModal(id){
   document.getElementById('modal-tools').innerHTML=p.tools.map(t=>`<span class="tool-badge">${t}</span>`).join('');
   document.getElementById('modal').classList.add('open');
 }
+
 function closeModal(e){
   if(!e||e.target.classList.contains('modal-overlay')||e.target.classList.contains('modal-close')){
     const videoEl=document.getElementById('modal-video');
@@ -511,6 +613,7 @@ function closeModal(e){
     document.getElementById('modal').classList.remove('open');
   }
 }
+
 renderCards();
 </script>
 </body>
