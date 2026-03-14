@@ -74,7 +74,7 @@ nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
 @keyframes hue-rotating{to{filter:hue-rotate(360deg)}}
 
 /* ── HERO ── */
-.hero{position:relative;z-index:1;padding:3rem 2.5rem 4rem;text-align:center;display:flex;flex-direction:column;align-items:center}
+.hero{position:relative;z-index:1;padding:2rem 2.5rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center}
 .hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid var(--green-border);padding:.35rem .9rem;border-radius:100px;margin-bottom:1.75rem}
 .hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:dotpulse 2s infinite}
 @keyframes dotpulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(34,197,94,0)}}
@@ -83,7 +83,7 @@ nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
 .hero-sub{font-size:1.05rem;color:var(--muted);max-width:520px;line-height:1.75;margin-bottom:2.5rem}
 
 /* ── SECTIONS ── */
-section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:3rem 2.5rem}
+section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem 2.5rem}
 .section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
 .section-tag{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);background:rgba(59,130,246,.08);border:1px solid var(--border);padding:.25rem .8rem;border-radius:100px}
 .section-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent)}
@@ -175,10 +175,10 @@ footer span{color:var(--accent)}
   .glitch-wrap>span{font-size:18px}
   .glitch-wrap::before,.glitch-wrap::after{font-size:18px}
   .gradient-button{padding:7px 13px;font-size:10.5px}
-  .hero{padding:2rem 1.25rem 3rem}
+  .hero{padding:1.5rem 1.25rem 1.5rem}
   .hero h1{font-size:clamp(2rem,11vw,3.5rem)}
   .hero-sub{font-size:.95rem}
-  section{padding:2.5rem 1.25rem}
+  section{padding:1.5rem 1.25rem}
   .section-title{font-size:1.5rem}
   .portfolio-grid{grid-template-columns:1fr}
   .filter-tabs{gap:.4rem}
@@ -232,9 +232,6 @@ footer span{color:var(--accent)}
   <div class="hero-tag">Disponible para proyectos</div>
   <h1>Gary <span class="accent">Soto.</span></h1>
   <p class="hero-sub">Estratega de contenido y editor audiovisual enfocado en la retención y el crecimiento.</p>
-  <a href="#portafolio" class="gradient-button hero-btn" onclick="navScroll('portafolio',event)">
-    <span class="gradient-text">Ver portafolio</span>
-  </a>
 </div>
 
 <!-- PORTAFOLIO -->
