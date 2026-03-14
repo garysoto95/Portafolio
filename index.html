@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gary Soto — Content Strategist & Video Editor</title>
+<style>
+/* ── ORBITRON ── */
+@font-face { font-family:'Orbitron'; src:url('fonts/Orbitron-Regular.woff2') format('woff2'); font-weight:400; font-display:block; }
+@font-face { font-family:'Orbitron'; src:url('fonts/Orbitron-Medium.woff2') format('woff2'); font-weight:500; font-display:block; }
+@font-face { font-family:'Orbitron'; src:url('fonts/Orbitron-SemiBold.woff2') format('woff2'); font-weight:600; font-display:block; }
+@font-face { font-family:'Orbitron'; src:url('fonts/Orbitron-Bold.woff2') format('woff2'); font-weight:700; font-display:block; }
+@font-face { font-family:'Orbitron'; src:url('fonts/Orbitron-ExtraBold.woff2') format('woff2'); font-weight:800; font-display:block; }
+@font-face { font-family:'Orbitron'; src:url('fonts/Orbitron-Black.woff2') format('woff2'); font-weight:900; font-display:block; }
+
+/* ── SPACE GROTESK ── */
+@font-face { font-family:'Space Grotesk'; src:url('fonts/SpaceGrotesk-Light.woff2') format('woff2'); font-weight:300; font-display:block; }
+@font-face { font-family:'Space Grotesk'; src:url('fonts/SpaceGrotesk-Regular.woff2') format('woff2'); font-weight:400; font-display:block; }
+@font-face { font-family:'Space Grotesk'; src:url('fonts/SpaceGrotesk-Medium.woff2') format('woff2'); font-weight:500; font-display:block; }
+@font-face { font-family:'Space Grotesk'; src:url('fonts/SpaceGrotesk-SemiBold.woff2') format('woff2'); font-weight:600; font-display:block; }
+@font-face { font-family:'Space Grotesk'; src:url('fonts/SpaceGrotesk-Bold.woff2') format('woff2'); font-weight:700; font-display:block; }
+
+/* ── SYNE ── */
+@font-face { font-family:'Syne'; src:url('fonts/Syne-Regular.woff2') format('woff2'); font-weight:400; font-display:block; }
+@font-face { font-family:'Syne'; src:url('fonts/Syne-Medium.woff2') format('woff2'); font-weight:500; font-display:block; }
+@font-face { font-family:'Syne'; src:url('fonts/Syne-SemiBold.woff2') format('woff2'); font-weight:600; font-display:block; }
+@font-face { font-family:'Syne'; src:url('fonts/Syne-Bold.woff2') format('woff2'); font-weight:700; font-display:block; }
+@font-face { font-family:'Syne'; src:url('fonts/Syne-ExtraBold.woff2') format('woff2'); font-weight:800; font-display:block; }
+</style>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c14;--bg2:#0d1220;--bg3:#111827;
+  --accent:#3b82f6;--accent2:#60a5fa;--accent3:#93c5fd;
+  --green:#22c55e;--green-dim:rgba(34,197,94,0.15);--green-border:rgba(34,197,94,0.4);
+  --text:#e2e8f0;--muted:#7d92b0;
+  --border:rgba(59,130,246,0.18);--border2:rgba(59,130,246,0.35);
+  --card:rgba(13,18,32,0.85);
+}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(8,12,20,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);width:100%;gap:1rem}
+nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
+.logo-block{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.logo-names{display:flex;flex-direction:column;align-items:center;gap:3px}
+.glitch-wrap{position:relative;display:inline-block;font-family:'Orbitron',sans-serif;font-weight:900;letter-spacing:8px;animation:fadeInLogo .8s cubic-bezier(.22,1,.36,1) both}
+.glitch-wrap.soto{animation-delay:.15s}
+.glitch-wrap>span{background:linear-gradient(135deg,#c8d8f0 0%,#a8bcd8 60%,#7bafd4 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-size:24px;display:block}
+.glitch-wrap::before,.glitch-wrap::after{content:attr(data-text);position:absolute;top:0;left:0;font-family:'Orbitron',sans-serif;font-weight:900;font-size:24px;letter-spacing:8px;width:100%;opacity:0}
+.glitch-wrap::before{color:#38bdf8;clip-path:polygon(0 15%,100% 15%,100% 48%,0 48%);animation:glitch-a 3s infinite}
+.glitch-wrap::after{color:#818cf8;clip-path:polygon(0 55%,100% 55%,100% 82%,0 82%);animation:glitch-b 3s infinite}
+.glitch-wrap.soto::before{animation:glitch-a 3s .08s infinite}
+.glitch-wrap.soto::after{animation:glitch-b 3s .08s infinite}
+@keyframes fadeInLogo{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes glitch-a{0%,78%,100%{opacity:0;transform:none}80%{opacity:.75;transform:translate(-3px,1px)}82%{opacity:.5;transform:translate(3px,-1px)}84%{opacity:.65;transform:translate(-2px,.5px)}86%{opacity:0;transform:none}}
+@keyframes glitch-b{0%,78%,100%{opacity:0;transform:none}81%{opacity:.6;transform:translate(3px,1.5px)}83%{opacity:.4;transform:translate(-2px,0)}85%{opacity:.55;transform:translate(1.5px,-1px)}87%{opacity:0;transform:none}}
+.role-divider{width:1px;height:56px;background:rgba(59,130,246,.2);flex-shrink:0;animation:fadeInLogo .8s ease .5s both}
+.logo-role{display:flex;flex-direction:column;gap:3px;animation:fadeInLogo .8s ease .5s both}
+.logo-role span{font-size:11px;font-weight:500;color:rgba(147,197,253,.6);letter-spacing:2.5px;text-transform:uppercase;white-space:nowrap}
+.logo-role span:last-child{color:rgba(96,165,250,.38);font-weight:300}
+
+/* ── GRADIENT BUTTON ── */
+.gradient-button{position:relative;padding:13px 26px;font-size:14px;font-weight:600;color:white;background:transparent;border:none;cursor:pointer;border-radius:50px;overflow:hidden;transition:transform .2s ease;text-decoration:none;display:inline-block;letter-spacing:.06em;font-family:'Space Grotesk',sans-serif;white-space:nowrap}
+.gradient-button:hover{transform:scale(1.03)}
+.gradient-button::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,#1a6fff,#00d4ff,#0ea5e9,#38bdf8,#7dd3fc,#1d4ed8,#1a6fff);z-index:-2;filter:blur(8px);transform:rotate(0deg);transition:transform 1.5s ease-in-out}
+.gradient-button:hover::before{transform:rotate(180deg)}
+.gradient-button::after{content:"";position:absolute;inset:2px;background:#080c14;border-radius:48px;z-index:-1;filter:blur(2px)}
+.gradient-text{color:transparent;background:conic-gradient(from 0deg,#60a5fa,#38bdf8,#7dd3fc,#93c5fd,#bfdbfe,#60a5fa,#38bdf8);background-clip:text;-webkit-background-clip:text}
+.gradient-button:hover .gradient-text{animation:hue-rotating 2s linear infinite}
+.gradient-button:active{transform:scale(.99)}
+.gradient-button.hero-btn{padding:12px 28px;font-size:13px}
+@keyframes hue-rotating{to{filter:hue-rotate(360deg)}}
+
+/* ── HERO ── */
+.hero{position:relative;z-index:1;padding:3rem 2.5rem 4rem;text-align:center;display:flex;flex-direction:column;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid var(--green-border);padding:.35rem .9rem;border-radius:100px;margin-bottom:1.75rem}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:dotpulse 2s infinite}
+@keyframes dotpulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(34,197,94,0)}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;line-height:1.05;color:#f0f6ff;margin-bottom:1rem}
+.hero h1 .accent{color:var(--accent2)}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:520px;line-height:1.75;margin-bottom:2.5rem}
+
+/* ── SECTIONS ── */
+section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:3rem 2.5rem}
+.section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
+.section-tag{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);background:rgba(59,130,246,.08);border:1px solid var(--border);padding:.25rem .8rem;border-radius:100px}
+.section-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent)}
+.section-title{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#f0f6ff;margin-bottom:.5rem}
+.section-desc{color:var(--muted);font-size:.95rem;margin-bottom:2rem}
+
+/* ── PORTFOLIO ── */
+.filter-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.75rem}
+.filter-tab{font-size:.78rem;padding:.4rem 1rem;border-radius:100px;border:1px solid var(--border);color:var(--muted);background:transparent;cursor:pointer;transition:all .2s;font-family:'Space Grotesk',sans-serif;letter-spacing:.05em}
+.filter-tab:hover,.filter-tab.active{background:rgba(59,130,246,.12);color:var(--accent2);border-color:var(--border2)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem}
+.portfolio-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .25s}
+.portfolio-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 0 24px rgba(59,130,246,.12)}
+.card-thumb{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.card-thumb .play-btn{width:48px;height:48px;border-radius:50%;background:rgba(59,130,246,.9);display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:transform .2s;z-index:2}
+.portfolio-card:hover .play-btn{transform:scale(1.1)}
+.card-thumb-bg{position:absolute;inset:0;opacity:.25}
+.card-body{padding:1rem}
+.card-tag{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.card-title{font-weight:600;font-size:.95rem;color:var(--text);margin-bottom:.35rem}
+.card-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+.card-footer{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;border-top:1px solid var(--border)}
+.card-tools{display:flex;gap:.4rem;flex-wrap:wrap}
+.tool-badge{font-size:.65rem;padding:.2rem .55rem;border-radius:100px;background:rgba(59,130,246,.1);color:var(--accent3);border:1px solid rgba(59,130,246,.2)}
+.card-arrow{color:var(--accent);font-size:1rem}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;width:90%;max-width:720px;max-height:90vh;overflow-y:auto;padding:2rem;position:relative}
+.modal-close{position:absolute;top:1rem;right:1rem;background:var(--bg3);border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.modal-close:hover{color:var(--text);border-color:var(--accent)}
+.modal-video{width:100%;aspect-ratio:16/9;border-radius:10px;margin-bottom:1.5rem;background:#000;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);color:var(--muted);font-size:.9rem;flex-direction:column;gap:.5rem}
+.modal-video .video-icon{font-size:2.5rem}
+.modal-tag{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.modal-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#f0f6ff;margin-bottom:.75rem}
+.modal-desc{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:1.25rem}
+.modal-tags{display:flex;gap:.5rem;flex-wrap:wrap}
+
+/* ── SOBRE MÍ ── */
+.about-wrapper{display:flex;justify-content:center}
+.about-card{position:relative;width:100%;max-width:580px;border-radius:50px;overflow:hidden;padding:3px}
+.about-card::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,#1a6fff,#00d4ff,#0ea5e9,#38bdf8,#7dd3fc,#818cf8,#1d4ed8,#1a6fff);z-index:0;filter:blur(8px);animation:rotateBorder 6s linear infinite}
+@keyframes rotateBorder{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.about-inner{position:relative;z-index:1;background:#0d1220;border-radius:48px;padding:2.5rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+.about-avatar-wrap{position:relative;width:72px;height:72px;border-radius:50%;padding:2.5px;overflow:hidden}
+.about-avatar-wrap::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,#1a6fff,#00d4ff,#38bdf8,#818cf8,#1d4ed8,#1a6fff);animation:rotateBorder 4s linear infinite;filter:blur(3px)}
+.about-avatar{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#1d4ed8,#0f2a6e);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-weight:900;font-size:.95rem;letter-spacing:.08em;color:#c8d8f0}
+.about-name{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#f0f6ff;line-height:1.1}
+.about-role{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:transparent;background:conic-gradient(from 0deg,#60a5fa,#38bdf8,#93c5fd,#60a5fa);background-clip:text;-webkit-background-clip:text}
+.about-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(96,165,250,.5),transparent)}
+.about-bio{color:var(--muted);font-size:.9rem;line-height:1.75;max-width:400px}
+.about-meta{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.meta-item{display:flex;flex-direction:column;align-items:center;gap:.2rem}
+.meta-icon{font-size:1rem}
+.meta-val{font-size:.8rem;font-weight:500;color:transparent;background:conic-gradient(from 0deg,#c8d8f0,#7bafd4,#c8d8f0);background-clip:text;-webkit-background-clip:text}
+.meta-key{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+.about-interests{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.interest-tag{font-size:.7rem;padding:.3rem .8rem;border-radius:100px;background:rgba(59,130,246,.08);color:var(--accent3);border:1px solid rgba(59,130,246,.25);letter-spacing:.04em;transition:all .2s;cursor:default}
+.interest-tag:hover{background:rgba(59,130,246,.15);border-color:rgba(96,165,250,.5);color:#e2e8f0}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;margin-top:1.5rem}
+.contact-card{position:relative;border-radius:18px;overflow:hidden;padding:3px;text-decoration:none;display:block;transition:transform .2s}
+.contact-card:hover{transform:scale(1.03)}
+.contact-card::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,#1a6fff,#00d4ff,#0ea5e9,#38bdf8,#7dd3fc,#1d4ed8,#1a6fff);z-index:0;filter:blur(8px);transform:rotate(0deg);transition:transform 1.5s ease-in-out}
+.contact-card:hover::before{transform:rotate(180deg)}
+.contact-card-inner{position:relative;z-index:1;background:#0d1220;border-radius:16px;padding:1.4rem 1.2rem;display:flex;align-items:center;gap:1rem}
+.contact-icon-wrap{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(59,130,246,.1);line-height:1}
+.contact-label{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.25rem}
+.contact-val{font-size:.82rem;font-weight:500;color:transparent;background:conic-gradient(from 0deg,#c8d8f0,#7eb8e8,#c8d8f0);background-clip:text;-webkit-background-clip:text;word-break:break-all}
+
+footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;letter-spacing:.06em}
+footer span{color:var(--accent)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+
+/* ══════════════════════════════
+   MOBILE — max 768px
+══════════════════════════════ */
+@media (max-width:768px){
+  nav{flex-direction:column;align-items:center;padding:.85rem 1.25rem;gap:.75rem}
+  .logo-block{width:100%;justify-content:center}
+  .logo-names{align-items:center}
+  nav ul{width:100%;justify-content:center;gap:.2rem;flex-wrap:wrap}
+  .logo-role{display:none}
+  .role-divider{display:none}
+  .glitch-wrap>span{font-size:18px}
+  .glitch-wrap::before,.glitch-wrap::after{font-size:18px}
+  .gradient-button{padding:7px 13px;font-size:10.5px}
+  .hero{padding:2rem 1.25rem 3rem}
+  .hero h1{font-size:clamp(2rem,11vw,3.5rem)}
+  .hero-sub{font-size:.95rem}
+  section{padding:2.5rem 1.25rem}
+  .section-title{font-size:1.5rem}
+  .portfolio-grid{grid-template-columns:1fr}
+  .filter-tabs{gap:.4rem}
+  .filter-tab{font-size:.72rem;padding:.35rem .85rem}
+  .about-card{border-radius:32px}
+  .about-inner{padding:2rem 1.25rem;border-radius:30px}
+  .about-name{font-size:1.2rem}
+  .about-meta{gap:1.25rem}
+  .contact-grid{grid-template-columns:1fr 1fr;gap:.8rem}
+  .contact-card-inner{padding:1rem .9rem;gap:.7rem}
+  .contact-icon-wrap{width:36px;height:36px}
+  .contact-val{font-size:.72rem}
+  .modal{padding:1.25rem}
+  .modal-title{font-size:1.2rem}
+}
+@media (max-width:420px){
+  .contact-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(1.8rem,12vw,2.8rem)}
+  .glitch-wrap>span{font-size:16px}
+  .glitch-wrap::before,.glitch-wrap::after{font-size:16px}
+  .gradient-button{padding:6px 11px;font-size:10px}
+}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-block">
+    <div class="logo-names">
+      <div class="glitch-wrap" data-text="GARY"><span>GARY</span></div>
+      <div class="glitch-wrap soto" data-text="SOTO"><span>SOTO</span></div>
+    </div>
+    <div class="role-divider"></div>
+    <div class="logo-role">
+      <span>Content</span>
+      <span>Strategist</span>
+      <span>Video Editor</span>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#portafolio" class="gradient-button" onclick="navScroll('portafolio',event)"><span class="gradient-text">Portafolio</span></a></li>
+    <li><a href="#sobre-mi" class="gradient-button" onclick="navScroll('sobre-mi',event)"><span class="gradient-text">Sobre mí</span></a></li>
+    <li><a href="#contacto" class="gradient-button" onclick="navScroll('contacto',event)"><span class="gradient-text">Contacto</span></a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Disponible para proyectos</div>
+  <h1>Gary <span class="accent">Soto.</span></h1>
+  <p class="hero-sub">Estratega de contenido y editor audiovisual enfocado en la retención y el crecimiento.</p>
+  <a href="#portafolio" class="gradient-button hero-btn" onclick="navScroll('portafolio',event)">
+    <span class="gradient-text">Ver portafolio</span>
+  </a>
+</div>
+
+<!-- PORTAFOLIO -->
+<section id="portafolio">
+  <div class="section-header">
+    <span class="section-tag">Portafolio</span>
+    <div class="section-line"></div>
+  </div>
+  <h2 class="section-title">Proyectos destacados</h2>
+  <p class="section-desc">Haz clic en cualquier proyecto para ver más detalles.</p>
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterCards('all',this)">Todos</button>
+    <button class="filter-tab" onclick="filterCards('spot',this)">Spots</button>
+    <button class="filter-tab" onclick="filterCards('reel',this)">Reels / Shorts</button>
+    <button class="filter-tab" onclick="filterCards('web',this)">Web & Marketing</button>
+    <button class="filter-tab" onclick="filterCards('social',this)">Social Media</button>
+  </div>
+  <div class="portfolio-grid" id="portfolio-grid"></div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="section-header">
+    <span class="section-tag">Sobre mí</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-wrapper">
+    <div class="about-card">
+      <div class="about-inner">
+        <div class="about-avatar-wrap">
+          <div class="about-avatar">GS</div>
+        </div>
+        <div class="about-name">Gary Soto Saldaña</div>
+        <div class="about-role">Estratega de Contenido · Editor Audiovisual</div>
+        <div class="about-divider"></div>
+        <p class="about-bio">Limeño, nacido el 5 de marzo de 1995. Me mueve la intersección entre tecnología, creatividad y datos.</p>
+        <div class="about-meta">
+          <div class="meta-item">
+            <span class="meta-icon">📍</span>
+            <span class="meta-val">Lima, Perú</span>
+            <span class="meta-key">Ubicación</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">🎂</span>
+            <span class="meta-val">05 / 03 / 1995</span>
+            <span class="meta-key">Nacimiento</span>
+          </div>
+        </div>
+        <div class="about-interests">
+          <span class="interest-tag">IA aplicada al contenido</span>
+          <span class="interest-tag">Edición Creativa</span>
+          <span class="interest-tag">Motion design</span>
+          <span class="interest-tag">Marketing data-driven</span>
+          <span class="interest-tag">Automatización creativa</span>
+          <span class="interest-tag">Uso de IA para generar contenido</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-header">
+    <span class="section-tag">Contacto</span>
+    <div class="section-line"></div>
+  </div>
+  <h2 class="section-title">¿Trabajamos juntos?</h2>
+  <p class="section-desc">Estoy disponible para proyectos freelance, colaboraciones y consultoría de contenido.</p>
+  <div class="contact-grid">
+
+    <a class="contact-card" href="mailto:garysoto19@gmail.com">
+      <div class="contact-card-inner">
+        <div class="contact-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="10" width="36" height="28" rx="3" fill="#fff" opacity=".05"/>
+            <rect x="6" y="10" width="36" height="28" rx="3" stroke="#60a5fa" stroke-width="1.5" fill="none"/>
+            <path d="M6 13l18 14L42 13" stroke="#EA4335" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">garysoto19@gmail.com</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="contact-card" href="https://wa.me/51982799749" target="_blank" rel="noopener">
+      <div class="contact-card-inner">
+        <div class="contact-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 9.9L4 44l10.4-2.7C17.2 43 20.5 44 24 44c11 0 20-9 20-20S35 4 24 4z" fill="#25D366"/>
+            <path d="M33.5 28.5c-.5-.3-3-1.5-3.5-1.6-.5-.2-.8-.2-1.2.2-.3.4-1.3 1.6-1.6 2-.3.3-.6.3-1.1.1-3-1.5-5-2.7-7-6.1-.5-.9.5-1 1.4-2.7.2-.3.1-.6 0-.8-.1-.2-1.2-2.8-1.6-3.8-.4-1-.8-.9-1.2-.9h-1c-.4 0-.9.1-1.4.6C15 16.5 13 18.4 13 22c0 3.7 2.7 7.2 3 7.7.4.5 5.3 8 12.9 11.2 4.8 2 6.7 2.2 9.1 1.8 1.4-.2 4.6-1.9 5.2-3.7.6-1.8.6-3.3.5-3.6-.2-.4-.6-.5-1.2-.9z" fill="white"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-val">+51 982 799 749</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="contact-card" href="https://instagram.com/heretic_______" target="_blank" rel="noopener">
+      <div class="contact-card-inner">
+        <div class="contact-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="ig1" cx="30%" cy="107%" r="150%">
+                <stop offset="0%" stop-color="#fdf497"/>
+                <stop offset="5%" stop-color="#fdf497"/>
+                <stop offset="45%" stop-color="#fd5949"/>
+                <stop offset="60%" stop-color="#d6249f"/>
+                <stop offset="90%" stop-color="#285AEB"/>
+              </radialGradient>
+            </defs>
+            <rect x="4" y="4" width="40" height="40" rx="12" fill="url(#ig1)"/>
+            <circle cx="24" cy="24" r="9" stroke="white" stroke-width="2.5" fill="none"/>
+            <circle cx="34" cy="14" r="2.5" fill="white"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-val">@heretic_______</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="contact-card" href="https://linkedin.com/in/gary-soto-salda%C3%B1a" target="_blank" rel="noopener">
+      <div class="contact-card-inner">
+        <div class="contact-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="40" height="40" rx="8" fill="#0A66C2"/>
+            <path d="M14 20h5v15h-5V20zm2.5-7a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM22 20h5v2h.1c.7-1.3 2.4-2.5 5-2.5 5.3 0 6.3 3.5 6.3 8V35h-5v-6.5c0-1.6 0-3.5-2.2-3.5-2.2 0-2.5 1.7-2.5 3.4V35h-5V20z" fill="white"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-val">Gary Soto Saldaña</div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer>Diseñado y construido por <span>Gary Soto</span> · Lima, Perú · 2025</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-video" id="modal-video">
+      <span class="video-icon">▶</span>
+      <span id="modal-video-label">Preview del proyecto</span>
+    </div>
+    <div class="modal-tag" id="modal-tag"></div>
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-desc" id="modal-desc"></div>
+    <div class="modal-tags" id="modal-tools"></div>
+  </div>
+</div>
+
+<script>
+function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})}
+
+/* ── 3D ANIMATED BG ── */
+(function(){
+  const canvas=document.getElementById('bg-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H,frame=0,rotX=0,rotY=0;
+  const nodes=Array.from({length:70},()=>({
+    x:Math.random(),y:Math.random(),z:Math.random(),
+    vx:(Math.random()-.5)*.0008,vy:(Math.random()-.5)*.0008,vz:(Math.random()-.5)*.002,
+    r:Math.random()*1.5+.5,pulse:Math.random()*Math.PI*2,
+    type:Math.random()>.65?'node':'dot'
+  }));
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+  function project(x,y,z){
+    const fov=600,px=(x-.5)*W,py=(y-.5)*H,pz=z*400-200;
+    const cosY=Math.cos(rotY),sinY=Math.sin(rotY);
+    const rx=px*cosY-pz*sinY,rz=px*sinY+pz*cosY;
+    const cosX=Math.cos(rotX),sinX=Math.sin(rotX);
+    const ry2=py*cosX-rz*sinX,rz2=py*sinX+rz*cosX;
+    const scale=fov/(fov+rz2+300);
+    return{sx:W/2+rx*scale,sy:H/2+ry2*scale,scale,depth:rz2};
+  }
+  function drawGrid(){
+    const steps=10;ctx.lineWidth=.4;
+    for(let i=0;i<=steps;i++){
+      const t=i/steps;
+      const p1=project(0,t,.5),p2=project(1,t,.5);
+      ctx.strokeStyle=`rgba(59,130,246,${.04+.03*Math.sin(frame*.01+t*3)})`;
+      ctx.beginPath();ctx.moveTo(p1.sx,p1.sy);ctx.lineTo(p2.sx,p2.sy);ctx.stroke();
+      const p3=project(t,0,.5),p4=project(t,1,.5);
+      ctx.strokeStyle=`rgba(59,130,246,${.04+.03*Math.sin(frame*.01+t*3)})`;
+      ctx.beginPath();ctx.moveTo(p3.sx,p3.sy);ctx.lineTo(p4.sx,p4.sy);ctx.stroke();
+    }
+  }
+  function drawOrbs(){
+    const t=frame*.003;
+    [{x:W*.15+Math.sin(t)*80,y:H*.2+Math.cos(t*.7)*50,r:260,c:'rgba(59,130,246,0.07)'},
+     {x:W*.82+Math.cos(t*.8)*90,y:H*.3+Math.sin(t*.5)*60,r:200,c:'rgba(99,102,241,0.06)'},
+     {x:W*.5+Math.sin(t*.6)*120,y:H*.8+Math.cos(t*.9)*70,r:300,c:'rgba(59,130,246,0.05)'},
+     {x:W*.3+Math.cos(t*.4)*60,y:H*.6+Math.sin(t*.7)*80,r:180,c:'rgba(56,189,248,0.04)'}
+    ].forEach(o=>{
+      const g=ctx.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r);
+      g.addColorStop(0,o.c);g.addColorStop(1,'transparent');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(o.x,o.y,o.r,0,Math.PI*2);ctx.fill();
+    });
+  }
+  function drawNodes(){
+    const projected=nodes.map(n=>{const p=project(n.x,n.y,n.z);return{...n,...p}}).sort((a,b)=>a.depth-b.depth);
+    for(let i=0;i<projected.length;i++)for(let j=i+1;j<projected.length;j++){
+      const a=projected[i],b=projected[j];
+      const dx=a.sx-b.sx,dy=a.sy-b.sy,d=Math.sqrt(dx*dx+dy*dy);
+      const maxD=160*Math.min(a.scale,b.scale)*2;
+      if(d<maxD){
+        ctx.strokeStyle=`rgba(59,130,246,${(1-d/maxD)*.35*Math.min(a.scale,b.scale)*2})`;
+        ctx.lineWidth=.7*Math.min(a.scale,b.scale)*2;
+        ctx.beginPath();ctx.moveTo(a.sx,a.sy);ctx.lineTo(b.sx,b.sy);ctx.stroke();
+      }
+    }
+    projected.forEach(n=>{
+      n.pulse+=.025;const g=Math.sin(n.pulse)*.5+.5;const r=n.r*n.scale*2.5;
+      if(n.type==='node'){
+        ctx.fillStyle=`rgba(96,165,250,${(.5+g*.5)*n.scale*2})`;
+        ctx.beginPath();ctx.arc(n.sx,n.sy,r*1.4,0,Math.PI*2);ctx.fill();
+        ctx.strokeStyle=`rgba(59,130,246,${(.3+g*.3)*n.scale*1.5})`;
+        ctx.lineWidth=.8;ctx.beginPath();ctx.arc(n.sx,n.sy,r*2.8,0,Math.PI*2);ctx.stroke();
+      }else{
+        ctx.fillStyle=`rgba(147,197,253,${(.3+g*.3)*n.scale*1.5})`;
+        ctx.beginPath();ctx.arc(n.sx,n.sy,r,0,Math.PI*2);ctx.fill();
+      }
+    });
+    nodes.forEach(n=>{
+      n.x+=n.vx;n.y+=n.vy;n.z+=n.vz;
+      if(n.x<0||n.x>1)n.vx*=-1;if(n.y<0||n.y>1)n.vy*=-1;if(n.z<0||n.z>1)n.vz*=-1;
+    });
+  }
+  function drawScan(){
+    const y=((frame*.4)%(H+120))-60;
+    const g=ctx.createLinearGradient(0,y-40,0,y+40);
+    g.addColorStop(0,'transparent');g.addColorStop(.5,'rgba(59,130,246,0.025)');g.addColorStop(1,'transparent');
+    ctx.fillStyle=g;ctx.fillRect(0,y-40,W,80);
+  }
+  function animate(){
+    ctx.clearRect(0,0,W,H);
+    rotY=Math.sin(frame*.0008)*.18;rotX=Math.sin(frame*.0005)*.08;
+    drawOrbs();drawGrid();drawScan();drawNodes();
+    frame++;requestAnimationFrame(animate);
+  }
+  resize();animate();
+  window.addEventListener('resize',resize);
+})();
+
+/* ── PORTFOLIO ── */
+const projects=[
+  {id:1,cat:'spot',color:'#1e3a5f',tag:'Spot Publicitario',title:'Campaña de lanzamiento – Marca X',desc:'Spot de 30 segundos para el lanzamiento de un producto tech. Edición rítmica con motion graphics y corrección de color cinematográfica. Resultado: +200K views en la primera semana.',tools:['Premiere Pro','After Effects','DaVinci'],videoUrl:''},
+  {id:2,cat:'reel',color:'#1a3a2a',tag:'Reel / Short',title:'Serie de Reels – Marca de fitness',desc:'Pack de 10 reels mensuales con edición de alta retención. Hooks en los primeros 3 segundos y subtítulos animados. +400% crecimiento en 60 días.',tools:['CapCut Pro','Premiere','Canva'],videoUrl:''},
+  {id:3,cat:'web',color:'#2a1a3e',tag:'Web & Marketing',title:'Video hero – Landing page SaaS',desc:'Video explicativo de 60 segundos para el hero de una landing page. Animaciones, screencasts y narración profesional. +35% en conversión.',tools:['After Effects','Figma','Loom'],videoUrl:''},
+  {id:4,cat:'social',color:'#3a2a10',tag:'Social Media',title:'Estrategia audiovisual – E-commerce',desc:'Producción y edición semanal para TikTok e Instagram. Análisis de métricas de retención y ajuste de formato basado en datos.',tools:['TikTok Studio','Meta Suite','Analytics'],videoUrl:''},
+  {id:5,cat:'spot',color:'#1a3030',tag:'Spot Publicitario',title:'Anuncio de temporada – Retail',desc:'Spot de 45 segundos con storytelling emocional y grade cinematográfico. Distribución en YouTube Ads y TV regional. 500K impresiones.',tools:['DaVinci Resolve','Premiere','Audition'],videoUrl:''},
+  {id:6,cat:'web',color:'#1e2d3e',tag:'Web & Marketing',title:'Caso de estudio animado – Agencia',desc:'Video de caso de estudio de 2 minutos con motion graphics e infografías animadas. Pieza central de la estrategia B2B.',tools:['After Effects','Illustrator','Premiere'],videoUrl:''}
+];
+
+function renderCards(filter='all'){
+  const grid=document.getElementById('portfolio-grid');
+  const f=filter==='all'?projects:projects.filter(p=>p.cat===filter);
+  grid.innerHTML=f.map(p=>`
+    <div class="portfolio-card" onclick="openModal(${p.id})">
+      <div class="card-thumb" style="background:${p.color}22;"><div class="card-thumb-bg" style="background:${p.color};"></div><div class="play-btn">▶</div></div>
+      <div class="card-body"><div class="card-tag">${p.tag}</div><div class="card-title">${p.title}</div><div class="card-desc">${p.desc.substring(0,72)}...</div></div>
+      <div class="card-footer"><div class="card-tools">${p.tools.slice(0,2).map(t=>`<span class="tool-badge">${t}</span>`).join('')}</div><span class="card-arrow">→</span></div>
+    </div>`).join('');
+}
+function filterCards(cat,btn){document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderCards(cat)}
+function openModal(id){
+  const p=projects.find(x=>x.id===id);
+  document.getElementById('modal-tag').textContent=p.tag;
+  document.getElementById('modal-title').textContent=p.title;
+  document.getElementById('modal-desc').textContent=p.desc;
+  const videoEl=document.getElementById('modal-video');
+  if(p.videoUrl){
+    videoEl.innerHTML=`<iframe width="100%" height="100%" src="${p.videoUrl}" frameborder="0" allowfullscreen style="border-radius:10px;"></iframe>`;
+    videoEl.style.padding='0';
+  }else{
+    videoEl.innerHTML=`<span class="video-icon">▶</span><span>Preview: ${p.title}</span>`;
+  }
+  document.getElementById('modal-tools').innerHTML=p.tools.map(t=>`<span class="tool-badge">${t}</span>`).join('');
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal(e){
+  if(!e||e.target.classList.contains('modal-overlay')||e.target.classList.contains('modal-close')){
+    const videoEl=document.getElementById('modal-video');
+    if(videoEl.querySelector('iframe'))videoEl.innerHTML=`<span class="video-icon">▶</span><span>Preview del proyecto</span>`;
+    document.getElementById('modal').classList.remove('open');
+  }
+}
+renderCards();
+</script>
+</body>
+</html>
