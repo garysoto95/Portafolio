@@ -96,10 +96,11 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .filter-tab{font-size:.78rem;padding:.4rem 1rem;border-radius:100px;border:1px solid var(--border);color:var(--muted);background:transparent;cursor:pointer;transition:all .2s;font-family:'Space Grotesk',sans-serif;letter-spacing:.05em}
 .filter-tab:hover,.filter-tab.active{background:rgba(59,130,246,.12);color:var(--accent2);border-color:var(--border2)}
 
-/* ── MASONRY GRID ── */
+/* ── PORTFOLIO GRID — 3 columnas simétricas ── */
 .portfolio-grid{
-  columns:3;
-  column-gap:1.25rem;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.25rem;
 }
 .portfolio-card{
   background:var(--card);
@@ -108,10 +109,8 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
   overflow:hidden;
   cursor:pointer;
   transition:transform .25s,border-color .25s,box-shadow .25s;
-  break-inside:avoid;
-  margin-bottom:1.25rem;
-  display:inline-block;
-  width:100%;
+  display:flex;
+  flex-direction:column;
 }
 .portfolio-card:hover{
   border-color:var(--border2);
@@ -119,16 +118,13 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
   box-shadow:0 0 28px rgba(59,130,246,.14);
 }
 
-/* thumb con aspect-ratio variable */
 .card-thumb{
   width:100%;
+  aspect-ratio:9/16;
   position:relative;
   overflow:hidden;
+  flex-shrink:0;
 }
-.card-thumb.r169 { aspect-ratio:16/9; }
-.card-thumb.r11  { aspect-ratio:1/1;  }
-.card-thumb.r45  { aspect-ratio:4/5;  }
-
 .card-thumb-bg{
   position:absolute;inset:0;
   opacity:.28;
@@ -139,28 +135,29 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .play-btn{
   position:absolute;top:50%;left:50%;
   transform:translate(-50%,-50%);
-  width:50px;height:50px;
+  width:52px;height:52px;
   border-radius:50%;
   background:rgba(59,130,246,.88);
   display:flex;align-items:center;justify-content:center;
-  font-size:1.25rem;
+  font-size:1.3rem;
   transition:transform .22s,background .2s;
   z-index:2;
 }
 .portfolio-card:hover .play-btn{
-  transform:translate(-50%,-50%) scale(1.1);
+  transform:translate(-50%,-50%) scale(1.12);
   background:rgba(59,130,246,1);
 }
 
-.card-body{padding:1rem 1.1rem .65rem}
+.card-body{padding:1.1rem 1.1rem .7rem;flex:1}
 .card-tag{font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.45rem}
-.card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#f0f6ff;margin-bottom:.45rem;line-height:1.25}
+.card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:#f0f6ff;margin-bottom:.5rem;line-height:1.25}
 .card-desc{font-size:.8rem;color:var(--muted);line-height:1.6}
 
 .card-footer{
   display:flex;align-items:center;justify-content:space-between;
-  padding:.7rem 1.1rem;
+  padding:.75rem 1.1rem;
   border-top:1px solid var(--border);
+  margin-top:auto;
 }
 .card-tools{display:flex;gap:.4rem;flex-wrap:wrap}
 .tool-badge{font-size:.65rem;padding:.2rem .55rem;border-radius:100px;background:rgba(59,130,246,.1);color:var(--accent3);border:1px solid rgba(59,130,246,.2)}
@@ -223,7 +220,7 @@ footer span{color:var(--accent)}
    MOBILE — max 768px
 ══════════════════════════════ */
 @media (max-width:1024px){
-  .portfolio-grid{columns:2}
+  .portfolio-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:768px){
   nav{flex-direction:column;align-items:center;padding:.85rem 1.25rem;gap:.75rem}
@@ -241,7 +238,7 @@ footer span{color:var(--accent)}
   section{padding:1.5rem 1.25rem}
   #portafolio{padding-left:1rem;padding-right:1rem}
   .section-title{font-size:1.5rem}
-  .portfolio-grid{columns:1}
+  .portfolio-grid{grid-template-columns:repeat(2,1fr)}
   .filter-tabs{gap:.4rem}
   .filter-tab{font-size:.72rem;padding:.35rem .85rem}
   .about-card{border-radius:32px}
@@ -553,7 +550,6 @@ function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementByI
 })();
 
 /* ── PORTFOLIO ── */
-const ratios=['r169','r11','r45','r169','r45','r11'];
 const projects=[
   {id:1,cat:'spot',color:'#1e3a5f',tag:'Spot Publicitario',title:'Campaña de lanzamiento – Marca X',desc:'Spot de 30 segundos para el lanzamiento de un producto tech. Edición rítmica con motion graphics y corrección de color cinematográfica. Resultado: +200K views en la primera semana.',tools:['Premiere Pro','After Effects','DaVinci'],videoUrl:''},
   {id:2,cat:'reel',color:'#1a3a2a',tag:'Reel / Short',title:'Serie de Reels – Marca de fitness',desc:'Pack de 10 reels mensuales con edición de alta retención. Hooks en los primeros 3 segundos y subtítulos animados. +400% crecimiento en 60 días.',tools:['CapCut Pro','Premiere','Canva'],videoUrl:''},
@@ -566,9 +562,9 @@ const projects=[
 function renderCards(filter='all'){
   const grid=document.getElementById('portfolio-grid');
   const f=filter==='all'?projects:projects.filter(p=>p.cat===filter);
-  grid.innerHTML=f.map((p,i)=>`
+  grid.innerHTML=f.map(p=>`
     <div class="portfolio-card" onclick="openModal(${p.id})">
-      <div class="card-thumb ${ratios[i%ratios.length]}" style="background:${p.color}22;">
+      <div class="card-thumb" style="background:${p.color}22;">
         <div class="card-thumb-bg" style="background:${p.color};"></div>
         <div class="play-btn">▶</div>
       </div>
