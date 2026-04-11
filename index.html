@@ -302,7 +302,7 @@ footer span{color:var(--accent)}
     <div class="section-line"></div>
   </div>
   <h2 class="section-title">Proyectos destacados</h2>
-  <p class="section-desc">▶ Clic en el video para reproducir &nbsp;·&nbsp; Clic en el texto para ver detalles</p>
+  <!-- Se eliminó la línea con instrucciones de clic -->
   <div class="filter-tabs">
     <button class="filter-tab active" onclick="filterCards('all',this)">Todos</button>
     <button class="filter-tab" onclick="filterCards('spot',this)">Spots</button>
@@ -407,14 +407,14 @@ function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementByI
 
 /* ── PORTFOLIO DATA ── */
 const projects=[
-  // 🔥 NUEVO VIDEO – PENTHOUSE SURCO (primer recuadro, mismas características que el original)
+  // 🔥 PENTHOUSE SURCO con nuevo video ID adQq-069aOI, solo DaVinci Resolve
   {id:7, cat:'reel', tag:'Reel / Short', title:'Penthouse en Surco – 1 habitación',
    desc:'Tour vertical de un penthouse de una habitación en Surco. Edición pensada para destacar la amplitud, iluminación natural y acabados modernos. Ritmo envolvente con planos detalle y transiciones fluidas, ideal para captar atención en formato short.',
-   tools:['Premiere Pro','DaVinci Resolve','After Effects'], videoId:'KgR-cVNtkAY', color:'#2c3e50'},
-  // proyectos existentes (se conservan)
+   tools:['DaVinci Resolve'], videoId:'adQq-069aOI', color:'#2c3e50'},
+  // OFICINA SAN ISIDRO, también solo DaVinci Resolve
   {id:1,cat:'reel',tag:'Reel / Short',title:'Oficina San Isidro – Reel Inmobiliario',
    desc:'Edición de reel para una oficina comercial en el distrito financiero de San Isidro, Lima. Pieza pensada para mostrar los espacios con dinamismo y ritmo, destacando la arquitectura interior y los ambientes de trabajo.',
-   tools:['Premiere Pro','DaVinci Resolve','After Effects'],videoId:'nI4CZOstQR0',color:'#1e3a5f'},
+   tools:['DaVinci Resolve'], videoId:'nI4CZOstQR0', color:'#1e3a5f'},
   {id:2,cat:'reel',color:'#1a3a2a',tag:'Reel / Short',title:'Serie de Reels – Marca de fitness',desc:'Pack de 10 reels mensuales con edición de alta retención. Hooks en los primeros 3 segundos y subtítulos animados. +400% crecimiento en 60 días.',tools:['CapCut Pro','Premiere','Canva'],videoId:''},
   {id:3,cat:'web',color:'#2a1a3e',tag:'Web & Marketing',title:'Video hero – Landing page SaaS',desc:'Video explicativo de 60 segundos para el hero de una landing page. Animaciones, screencasts y narración profesional. +35% en conversión.',tools:['After Effects','Figma','Loom'],videoId:''},
   {id:4,cat:'social',color:'#3a2a10',tag:'Social Media',title:'Estrategia audiovisual – E-commerce',desc:'Producción y edición semanal para TikTok e Instagram. Análisis de métricas de retención y ajuste de formato basado en datos.',tools:['TikTok Studio','Meta Suite','Analytics'],videoId:''},
