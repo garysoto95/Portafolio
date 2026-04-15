@@ -69,7 +69,7 @@ nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;flex-shrink:0}
 
 /* HERO */
 .hero{position:relative;z-index:1;padding:2rem 2.5rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center}
-.hero-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid var(--green-border);padding:.35rem .9rem;border-radius:100px;margin-bottom:1.75rem}
+.hero-tag{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid var(--green-border);padding:.35rem .9rem;border-radius:100px;margin-bottom:1.75rem;margin-left:auto;margin-right:auto;width:fit-content}
 .hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:dotpulse 2s infinite}
 @keyframes dotpulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(34,197,94,0)}}
 .hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;line-height:1.05;color:#f0f6ff;margin-bottom:1rem}
@@ -302,7 +302,6 @@ footer span{color:var(--accent)}
     <div class="section-line"></div>
   </div>
   <h2 class="section-title">Proyectos destacados</h2>
-  <!-- Se eliminó la línea con instrucciones de clic -->
   <div class="filter-tabs">
     <button class="filter-tab active" onclick="filterCards('all',this)">Todos</button>
     <button class="filter-tab" onclick="filterCards('spot',this)">Spots</button>
@@ -405,21 +404,30 @@ function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementByI
   resize();animate();window.addEventListener('resize',resize);
 })();
 
-/* ── PORTFOLIO DATA ── */
+/* ── PORTFOLIO DATA (UrbanOut ahora junto a los videos) ── */
 const projects=[
-  // 🔥 PENTHOUSE SURCO con nuevo video ID adQq-069aOI, solo DaVinci Resolve
+  // Penthouse Surco (Reel/Short) – DaVinci Resolve
   {id:7, cat:'reel', tag:'Reel / Short', title:'Penthouse en Surco – 1 habitación',
    desc:'Tour vertical de un penthouse de una habitación en Surco. Edición pensada para destacar la amplitud, iluminación natural y acabados modernos. Ritmo envolvente con planos detalle y transiciones fluidas, ideal para captar atención en formato short.',
    tools:['DaVinci Resolve'], videoId:'adQq-069aOI', color:'#2c3e50'},
-  // OFICINA SAN ISIDRO, también solo DaVinci Resolve
-  {id:1,cat:'reel',tag:'Reel / Short',title:'Oficina San Isidro – Reel Inmobiliario',
+  // Oficina San Isidro (Reel/Short) – DaVinci Resolve
+  {id:1, cat:'reel', tag:'Reel / Short', title:'Oficina San Isidro – Reel Inmobiliario',
    desc:'Edición de reel para una oficina comercial en el distrito financiero de San Isidro, Lima. Pieza pensada para mostrar los espacios con dinamismo y ritmo, destacando la arquitectura interior y los ambientes de trabajo.',
    tools:['DaVinci Resolve'], videoId:'nI4CZOstQR0', color:'#1e3a5f'},
-  {id:2,cat:'reel',color:'#1a3a2a',tag:'Reel / Short',title:'Serie de Reels – Marca de fitness',desc:'Pack de 10 reels mensuales con edición de alta retención. Hooks en los primeros 3 segundos y subtítulos animados. +400% crecimiento en 60 días.',tools:['CapCut Pro','Premiere','Canva'],videoId:''},
-  {id:3,cat:'web',color:'#2a1a3e',tag:'Web & Marketing',title:'Video hero – Landing page SaaS',desc:'Video explicativo de 60 segundos para el hero de una landing page. Animaciones, screencasts y narración profesional. +35% en conversión.',tools:['After Effects','Figma','Loom'],videoId:''},
-  {id:4,cat:'social',color:'#3a2a10',tag:'Social Media',title:'Estrategia audiovisual – E-commerce',desc:'Producción y edición semanal para TikTok e Instagram. Análisis de métricas de retención y ajuste de formato basado en datos.',tools:['TikTok Studio','Meta Suite','Analytics'],videoId:''},
-  {id:5,cat:'spot',color:'#1a3030',tag:'Spot Publicitario',title:'Anuncio de temporada – Retail',desc:'Spot de 45 segundos con storytelling emocional y grade cinematográfico. Distribución en YouTube Ads y TV regional. 500K impresiones.',tools:['DaVinci Resolve','Premiere','Audition'],videoId:''},
-  {id:6,cat:'web',color:'#1e2d3e',tag:'Web & Marketing',title:'Caso de estudio animado – Agencia',desc:'Video de caso de estudio de 2 minutos con motion graphics e infografías animadas. Pieza central de la estrategia B2B.',tools:['After Effects','Illustrator','Premiere'],videoId:''}
+  // 🆕 UrbanOut – Social Media (ahora en tercera posición, junto a los otros videos)
+  {id:8, cat:'social', tag:'Social Media', title:'UrbanOut - Tienda de Ropa y Zapatillas',
+   desc:'Video editado con DaVinci Resolve enfocado en mostrar la marca y la tienda de manera impactante. Ritmo dinámico y estética urbana para destacar productos y ambiente.',
+   tools:['DaVinci Resolve'], videoId:'d4SCw0-DXhM', color:'#3a2a10'},
+  // Serie de Reels Fitness
+  {id:2, cat:'reel', color:'#1a3a2a', tag:'Reel / Short', title:'Serie de Reels – Marca de fitness', desc:'Pack de 10 reels mensuales con edición de alta retención. Hooks en los primeros 3 segundos y subtítulos animados. +400% crecimiento en 60 días.', tools:['CapCut Pro','Premiere','Canva'], videoId:''},
+  // Video hero SaaS
+  {id:3, cat:'web', color:'#2a1a3e', tag:'Web & Marketing', title:'Video hero – Landing page SaaS', desc:'Video explicativo de 60 segundos para el hero de una landing page. Animaciones, screencasts y narración profesional. +35% en conversión.', tools:['After Effects','Figma','Loom'], videoId:''},
+  // Estrategia E-commerce
+  {id:4, cat:'social', color:'#3a2a10', tag:'Social Media', title:'Estrategia audiovisual – E-commerce', desc:'Producción y edición semanal para TikTok e Instagram. Análisis de métricas de retención y ajuste de formato basado en datos.', tools:['TikTok Studio','Meta Suite','Analytics'], videoId:''},
+  // Spot Retail
+  {id:5, cat:'spot', color:'#1a3030', tag:'Spot Publicitario', title:'Anuncio de temporada – Retail', desc:'Spot de 45 segundos con storytelling emocional y grade cinematográfico. Distribución en YouTube Ads y TV regional. 500K impresiones.', tools:['DaVinci Resolve','Premiere','Audition'], videoId:''},
+  // Caso de estudio animado
+  {id:6, cat:'web', color:'#1e2d3e', tag:'Web & Marketing', title:'Caso de estudio animado – Agencia', desc:'Video de caso de estudio de 2 minutos con motion graphics e infografías animadas. Pieza central de la estrategia B2B.', tools:['After Effects','Illustrator','Premiere'], videoId:''}
 ];
 
 /* ── RENDER ── */
@@ -427,7 +435,6 @@ function renderCards(filter='all'){
   const grid=document.getElementById('portfolio-grid');
   const f=filter==='all'?projects:projects.filter(p=>p.cat===filter);
   grid.innerHTML=f.map(p=>{
-    // Zona thumb
     const thumbInner=p.videoId
       ?`<img class="card-thumb-img" src="https://i.ytimg.com/vi/${p.videoId}/hqdefault.jpg" alt="${p.title}" loading="lazy">
         <iframe class="card-player" id="player-${p.id}" src=""
@@ -464,12 +471,10 @@ function playInCard(id,e){
   if(!iframe)return;
 
   if(thumb.classList.contains('playing')){
-    // segundo click: detener
     iframe.src='';
     thumb.classList.remove('playing');
     return;
   }
-  // detener cualquier otro player activo
   document.querySelectorAll('.card-thumb.playing').forEach(t=>{
     const f=t.querySelector('.card-player');
     if(f)f.src='';
