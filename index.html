@@ -128,7 +128,7 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 }
 .card-thumb:hover .card-thumb-img{transform:scale(1.04);opacity:.8}
 
-/* fondo de color para cards sin videoId */
+/* fondo de color para cards sin videoId (ahora ninguna lo usa, pero se mantiene) */
 .card-thumb-bg{position:absolute;inset:0;opacity:.3;transition:opacity .3s,transform .35s}
 .card-thumb:hover .card-thumb-bg{opacity:.5;transform:scale(1.04)}
 
@@ -302,11 +302,10 @@ footer span{color:var(--accent)}
     <div class="section-line"></div>
   </div>
   <h2 class="section-title">Proyectos destacados</h2>
+  <!-- FILTROS: solo Todos, Reels/Shorts y Social Media -->
   <div class="filter-tabs">
     <button class="filter-tab active" onclick="filterCards('all',this)">Todos</button>
-    <button class="filter-tab" onclick="filterCards('spot',this)">Spots</button>
     <button class="filter-tab" onclick="filterCards('reel',this)">Reels / Shorts</button>
-    <button class="filter-tab" onclick="filterCards('web',this)">Web & Marketing</button>
     <button class="filter-tab" onclick="filterCards('social',this)">Social Media</button>
   </div>
   <div class="portfolio-grid" id="portfolio-grid"></div>
@@ -404,30 +403,24 @@ function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementByI
   resize();animate();window.addEventListener('resize',resize);
 })();
 
-/* ── PORTFOLIO DATA (UrbanOut ahora junto a los videos) ── */
+/* ── PORTFOLIO DATA (solo 4 proyectos con video, categorizados) ── */
 const projects=[
-  // Penthouse Surco (Reel/Short) – DaVinci Resolve
+  // ZAFINA 2025 PRIMAVERA (Reel/Short)
+  {id:9, cat:'reel', tag:'Reel / Short', title:'Zafina 2025 Showroom Primavera',
+   desc:'Showroom de Costura Coreana 2025. Edición dinámica para destacar las nuevas colecciones primaverales y el ambiente del evento. Ritmo ágil y planos detalle que capturan la esencia de la moda coreana en formato short.',
+   tools:['DaVinci Resolve'], videoId:'Ko7JjfoyBoE', color:'#1e3a5f'},
+  // Penthouse Surco (Reel/Short)
   {id:7, cat:'reel', tag:'Reel / Short', title:'Penthouse en Surco – 1 habitación',
    desc:'Tour vertical de un penthouse de una habitación en Surco. Edición pensada para destacar la amplitud, iluminación natural y acabados modernos. Ritmo envolvente con planos detalle y transiciones fluidas, ideal para captar atención en formato short.',
    tools:['DaVinci Resolve'], videoId:'adQq-069aOI', color:'#2c3e50'},
-  // Oficina San Isidro (Reel/Short) – DaVinci Resolve
+  // Oficina San Isidro (Reel/Short)
   {id:1, cat:'reel', tag:'Reel / Short', title:'Oficina San Isidro – Reel Inmobiliario',
    desc:'Edición de reel para una oficina comercial en el distrito financiero de San Isidro, Lima. Pieza pensada para mostrar los espacios con dinamismo y ritmo, destacando la arquitectura interior y los ambientes de trabajo.',
    tools:['DaVinci Resolve'], videoId:'nI4CZOstQR0', color:'#1e3a5f'},
-  // 🆕 UrbanOut – Social Media (ahora en tercera posición, junto a los otros videos)
+  // UrbanOut (Social Media)
   {id:8, cat:'social', tag:'Social Media', title:'UrbanOut - Tienda de Ropa y Zapatillas',
    desc:'Video editado con DaVinci Resolve enfocado en mostrar la marca y la tienda de manera impactante. Ritmo dinámico y estética urbana para destacar productos y ambiente.',
-   tools:['DaVinci Resolve'], videoId:'d4SCw0-DXhM', color:'#3a2a10'},
-  // Serie de Reels Fitness
-  {id:2, cat:'reel', color:'#1a3a2a', tag:'Reel / Short', title:'Serie de Reels – Marca de fitness', desc:'Pack de 10 reels mensuales con edición de alta retención. Hooks en los primeros 3 segundos y subtítulos animados. +400% crecimiento en 60 días.', tools:['CapCut Pro','Premiere','Canva'], videoId:''},
-  // Video hero SaaS
-  {id:3, cat:'web', color:'#2a1a3e', tag:'Web & Marketing', title:'Video hero – Landing page SaaS', desc:'Video explicativo de 60 segundos para el hero de una landing page. Animaciones, screencasts y narración profesional. +35% en conversión.', tools:['After Effects','Figma','Loom'], videoId:''},
-  // Estrategia E-commerce
-  {id:4, cat:'social', color:'#3a2a10', tag:'Social Media', title:'Estrategia audiovisual – E-commerce', desc:'Producción y edición semanal para TikTok e Instagram. Análisis de métricas de retención y ajuste de formato basado en datos.', tools:['TikTok Studio','Meta Suite','Analytics'], videoId:''},
-  // Spot Retail
-  {id:5, cat:'spot', color:'#1a3030', tag:'Spot Publicitario', title:'Anuncio de temporada – Retail', desc:'Spot de 45 segundos con storytelling emocional y grade cinematográfico. Distribución en YouTube Ads y TV regional. 500K impresiones.', tools:['DaVinci Resolve','Premiere','Audition'], videoId:''},
-  // Caso de estudio animado
-  {id:6, cat:'web', color:'#1e2d3e', tag:'Web & Marketing', title:'Caso de estudio animado – Agencia', desc:'Video de caso de estudio de 2 minutos con motion graphics e infografías animadas. Pieza central de la estrategia B2B.', tools:['After Effects','Illustrator','Premiere'], videoId:''}
+   tools:['DaVinci Resolve'], videoId:'d4SCw0-DXhM', color:'#3a2a10'}
 ];
 
 /* ── RENDER ── */
