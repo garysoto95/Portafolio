@@ -86,15 +86,10 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 
 /* PORTAFOLIO */
 #portafolio{max-width:1360px;padding-left:2rem;padding-right:2rem}
-#portafolio .section-header,#portafolio .section-title,#portafolio .section-desc,#portafolio .filter-tabs{max-width:920px;margin-left:auto;margin-right:auto}
-
-/* FILTER TABS */
-.filter-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.75rem;justify-content:center}
-.filter-tab{font-size:.78rem;padding:.4rem 1rem;border-radius:100px;border:1px solid var(--border);color:var(--muted);background:transparent;cursor:pointer;transition:all .2s;font-family:'Space Grotesk',sans-serif;letter-spacing:.05em}
-.filter-tab:hover,.filter-tab.active{background:rgba(59,130,246,.12);color:var(--accent2);border-color:var(--border2)}
+#portafolio .section-header,#portafolio .section-title,#portafolio .section-desc{max-width:920px;margin-left:auto;margin-right:auto}
 
 /* PORTFOLIO GRID */
-.portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:1.5rem}
 
 .portfolio-card{
   background:var(--card);
@@ -107,7 +102,7 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 }
 .portfolio-card:hover{border-color:var(--border2);box-shadow:0 0 28px rgba(59,130,246,.14)}
 
-/* ── CARD THUMB: zona clicable para reproducir ── */
+/* CARD THUMB */
 .card-thumb{
   width:100%;
   aspect-ratio:9/16;
@@ -118,7 +113,6 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
   cursor:pointer;
 }
 
-/* thumbnail de YouTube */
 .card-thumb-img{
   position:absolute;inset:0;
   width:100%;height:100%;
@@ -128,11 +122,9 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 }
 .card-thumb:hover .card-thumb-img{transform:scale(1.04);opacity:.8}
 
-/* fondo de color para cards sin videoId (ahora ninguna lo usa, pero se mantiene) */
 .card-thumb-bg{position:absolute;inset:0;opacity:.3;transition:opacity .3s,transform .35s}
 .card-thumb:hover .card-thumb-bg{opacity:.5;transform:scale(1.04)}
 
-/* botón play */
 .play-btn{
   position:absolute;top:50%;left:50%;
   transform:translate(-50%,-50%);
@@ -151,7 +143,6 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 }
 .card-thumb:hover .play-btn{transform:translate(-50%,-50%) scale(1.12);background:#3b82f6}
 
-/* iframe del player incrustado */
 .card-player{
   position:absolute;inset:0;
   width:100%;height:100%;
@@ -161,13 +152,12 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
   background:#000;
 }
 
-/* estado "playing": ocultar thumbnail y play-btn, mostrar iframe */
 .card-thumb.playing .card-thumb-img,
 .card-thumb.playing .card-thumb-bg,
 .card-thumb.playing .play-btn{opacity:0;pointer-events:none}
 .card-thumb.playing .card-player{display:block}
 
-/* ── CARD INFO: zona clicable para abrir modal ── */
+/* CARD INFO */
 .card-info{
   cursor:pointer;
   display:flex;
@@ -188,7 +178,6 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 .card-arrow{color:var(--accent2);font-size:.9rem;transition:transform .2s}
 .card-info:hover .card-arrow{transform:translateX(3px)}
 
-/* hint sutil */
 .card-hint{
   font-size:.6rem;color:rgba(96,165,250,.4);
   letter-spacing:.1em;text-transform:uppercase;
@@ -197,7 +186,7 @@ section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem
 }
 .card-info:hover .card-hint{color:var(--accent2)}
 
-/* MODAL — solo descripción, sin video */
+/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
 .modal-overlay.open{display:flex}
 .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;width:90%;max-width:420px;max-height:90vh;overflow-y:auto;padding:2rem;position:relative}
@@ -257,7 +246,6 @@ footer span{color:var(--accent)}
   .hero{padding:1.5rem 1.25rem 1.5rem}.hero h1{font-size:clamp(2rem,11vw,3.5rem)}.hero-sub{font-size:.95rem}
   section{padding:1.5rem 1.25rem}#portafolio{padding-left:1rem;padding-right:1rem}
   .section-title{font-size:1.5rem}.portfolio-grid{grid-template-columns:repeat(2,1fr)}
-  .filter-tabs{gap:.4rem}.filter-tab{font-size:.72rem;padding:.35rem .85rem}
   .about-card{border-radius:32px}.about-inner{padding:2rem 1.25rem;border-radius:30px}.about-name{font-size:1.2rem}.about-meta{gap:1.25rem}
   .contact-grid{grid-template-columns:1fr 1fr;gap:.8rem}.contact-card-inner{padding:1rem .9rem;gap:.7rem}.contact-icon-wrap{width:36px;height:36px}.contact-val{font-size:.72rem}
   .modal{padding:1.25rem}.modal-title{font-size:1.2rem}
@@ -302,12 +290,7 @@ footer span{color:var(--accent)}
     <div class="section-line"></div>
   </div>
   <h2 class="section-title">Proyectos destacados</h2>
-  <!-- FILTROS: solo Todos, Reels/Shorts y Social Media -->
-  <div class="filter-tabs">
-    <button class="filter-tab active" onclick="filterCards('all',this)">Todos</button>
-    <button class="filter-tab" onclick="filterCards('reel',this)">Reels / Shorts</button>
-    <button class="filter-tab" onclick="filterCards('social',this)">Social Media</button>
-  </div>
+  <!-- SIN FILTROS, solo el grid -->
   <div class="portfolio-grid" id="portfolio-grid"></div>
 </section>
 
@@ -372,7 +355,7 @@ footer span{color:var(--accent)}
 
 <footer>Diseñado y construido por <span>Gary Soto</span> · Lima, Perú · 2025</footer>
 
-<!-- MODAL — solo descripción/herramientas, sin video -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -403,37 +386,30 @@ function navScroll(id,e){if(e)e.preventDefault();const el=document.getElementByI
   resize();animate();window.addEventListener('resize',resize);
 })();
 
-/* ── PORTFOLIO DATA (solo 4 proyectos con video, categorizados) ── */
-const projects=[
-  // ZAFINA 2025 PRIMAVERA (Reel/Short)
-  {id:9, cat:'reel', tag:'Reel / Short', title:'Zafina 2025 Showroom Primavera',
-   desc:'Showroom de Costura Coreana 2025. Edición dinámica para destacar las nuevas colecciones primaverales y el ambiente del evento. Ritmo ágil y planos detalle que capturan la esencia de la moda coreana en formato short.',
-   tools:['DaVinci Resolve'], videoId:'Ko7JjfoyBoE', color:'#1e3a5f'},
-  // Penthouse Surco (Reel/Short)
-  {id:7, cat:'reel', tag:'Reel / Short', title:'Penthouse en Surco – 1 habitación',
-   desc:'Tour vertical de un penthouse de una habitación en Surco. Edición pensada para destacar la amplitud, iluminación natural y acabados modernos. Ritmo envolvente con planos detalle y transiciones fluidas, ideal para captar atención en formato short.',
-   tools:['DaVinci Resolve'], videoId:'adQq-069aOI', color:'#2c3e50'},
-  // Oficina San Isidro (Reel/Short)
-  {id:1, cat:'reel', tag:'Reel / Short', title:'Oficina San Isidro – Reel Inmobiliario',
-   desc:'Edición de reel para una oficina comercial en el distrito financiero de San Isidro, Lima. Pieza pensada para mostrar los espacios con dinamismo y ritmo, destacando la arquitectura interior y los ambientes de trabajo.',
-   tools:['DaVinci Resolve'], videoId:'nI4CZOstQR0', color:'#1e3a5f'},
-  // UrbanOut (Social Media)
-  {id:8, cat:'social', tag:'Social Media', title:'UrbanOut - Tienda de Ropa y Zapatillas',
-   desc:'Video editado con DaVinci Resolve enfocado en mostrar la marca y la tienda de manera impactante. Ritmo dinámico y estética urbana para destacar productos y ambiente.',
-   tools:['DaVinci Resolve'], videoId:'d4SCw0-DXhM', color:'#3a2a10'}
+/* ── PORTFOLIO DATA (todos con tag "Social Media") ── */
+const projects = [
+  { id:9, tag:'Social Media', title:'Zafina 2025 Showroom Primavera',
+    desc:'Showroom de Costura Coreana 2025. Edición dinámica para destacar las nuevas colecciones primaverales y el ambiente del evento. Ritmo ágil y planos detalle que capturan la esencia de la moda coreana en formato short.',
+    tools:['DaVinci Resolve'], videoId:'Ko7JjfoyBoE', color:'#1e3a5f' },
+  { id:7, tag:'Social Media', title:'Penthouse en Surco – 1 habitación',
+    desc:'Tour vertical de un penthouse de una habitación en Surco. Edición pensada para destacar la amplitud, iluminación natural y acabados modernos. Ritmo envolvente con planos detalle y transiciones fluidas, ideal para captar atención en formato short.',
+    tools:['DaVinci Resolve'], videoId:'adQq-069aOI', color:'#2c3e50' },
+  { id:1, tag:'Social Media', title:'Oficina San Isidro – Reel Inmobiliario',
+    desc:'Edición de reel para una oficina comercial en el distrito financiero de San Isidro, Lima. Pieza pensada para mostrar los espacios con dinamismo y ritmo, destacando la arquitectura interior y los ambientes de trabajo.',
+    tools:['DaVinci Resolve'], videoId:'nI4CZOstQR0', color:'#1e3a5f' },
+  { id:10, tag:'Social Media', title:'Tienda Immense Ropa Urbana 2025',
+    desc:'Video editado con DaVinci Resolve enfocado en mostrar la marca y la tienda de manera impactante. Ritmo dinámico y estética urbana para destacar productos y ambiente.',
+    tools:['DaVinci Resolve'], videoId:'3RuiI-UDcnE', color:'#3a2a10' }
 ];
 
-/* ── RENDER ── */
-function renderCards(filter='all'){
-  const grid=document.getElementById('portfolio-grid');
-  const f=filter==='all'?projects:projects.filter(p=>p.cat===filter);
-  grid.innerHTML=f.map(p=>{
-    const thumbInner=p.videoId
-      ?`<img class="card-thumb-img" src="https://i.ytimg.com/vi/${p.videoId}/hqdefault.jpg" alt="${p.title}" loading="lazy">
-        <iframe class="card-player" id="player-${p.id}" src=""
-          data-src="https://www.youtube.com/embed/${p.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
-          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-      :`<div class="card-thumb-bg" style="background:${p.color};"></div>`;
+/* ── RENDER (sin filtros) ── */
+function renderCards(){
+  const grid = document.getElementById('portfolio-grid');
+  grid.innerHTML = projects.map(p => {
+    const thumbInner = `<img class="card-thumb-img" src="https://i.ytimg.com/vi/${p.videoId}/hqdefault.jpg" alt="${p.title}" loading="lazy">
+      <iframe class="card-player" id="player-${p.id}" src=""
+        data-src="https://www.youtube.com/embed/${p.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
     return `<div class="portfolio-card" id="card-${p.id}">
       <div class="card-thumb" id="thumb-${p.id}" onclick="playInCard(${p.id},event)">
@@ -457,47 +433,37 @@ function renderCards(filter='all'){
 }
 
 /* ── PLAY INLINE ── */
-function playInCard(id,e){
+function playInCard(id, e) {
   e.stopPropagation();
-  const thumb=document.getElementById('thumb-'+id);
-  const iframe=document.getElementById('player-'+id);
-  if(!iframe)return;
+  const thumb = document.getElementById('thumb-' + id);
+  const iframe = document.getElementById('player-' + id);
+  if (!iframe) return;
 
-  if(thumb.classList.contains('playing')){
-    iframe.src='';
+  if (thumb.classList.contains('playing')) {
+    iframe.src = '';
     thumb.classList.remove('playing');
     return;
   }
-  document.querySelectorAll('.card-thumb.playing').forEach(t=>{
-    const f=t.querySelector('.card-player');
-    if(f)f.src='';
+  document.querySelectorAll('.card-thumb.playing').forEach(t => {
+    const f = t.querySelector('.card-player');
+    if (f) f.src = '';
     t.classList.remove('playing');
   });
-  iframe.src=iframe.dataset.src;
+  iframe.src = iframe.dataset.src;
   thumb.classList.add('playing');
 }
 
-/* ── FILTER ── */
-function filterCards(cat,btn){
-  document.querySelectorAll('.card-thumb.playing').forEach(t=>{
-    const f=t.querySelector('.card-player');if(f)f.src='';t.classList.remove('playing');
-  });
-  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
-  renderCards(cat);
-}
-
 /* ── MODAL ── */
-function openModal(id){
-  const p=projects.find(x=>x.id===id);
-  document.getElementById('modal-tag').textContent=p.tag;
-  document.getElementById('modal-title').textContent=p.title;
-  document.getElementById('modal-desc').textContent=p.desc;
-  document.getElementById('modal-tools').innerHTML=p.tools.map(t=>`<span class="tool-badge">${t}</span>`).join('');
+function openModal(id) {
+  const p = projects.find(x => x.id === id);
+  document.getElementById('modal-tag').textContent = p.tag;
+  document.getElementById('modal-title').textContent = p.title;
+  document.getElementById('modal-desc').textContent = p.desc;
+  document.getElementById('modal-tools').innerHTML = p.tools.map(t => `<span class="tool-badge">${t}</span>`).join('');
   document.getElementById('modal').classList.add('open');
 }
-function closeModal(e){
-  if(!e||e.target.classList.contains('modal-overlay')||e.target.classList.contains('modal-close'))
+function closeModal(e) {
+  if (!e || e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-close'))
     document.getElementById('modal').classList.remove('open');
 }
 
